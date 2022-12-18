@@ -1,16 +1,17 @@
 import React from 'react'
-import { AffairType } from '../../HW2'
+import {AffairType} from '../../HW2'
 import s from './Affair.module.css'
 import s2 from '../Affairs.module.css'
 
 type AffairPropsType = {
     // key не нужно типизировать
     affair: AffairType
-    deleteAffairCallback: any // need to fix any
+    deleteAffairCallback: (_id: number) => void
 }
 
 function Affair(props: AffairPropsType) {
     const deleteCallback = () => {
+         props.deleteAffairCallback(props.affair._id)
         // need to fix
         // пропс.функция(мне нужен _id)
         // давайте проследим боевой путь это функции, или как она будет всплывать:
@@ -32,12 +33,12 @@ function Affair(props: AffairPropsType) {
         >
             <div id={'hw2-name-' + props.affair._id} className={nameClass}>
                 {/*создаёт студент*/}
-                {/* ПРОПС.ВЫВОДИМ ИМЯ*/}
+                {props.affair.name}
                 {/**/}
             </div>
             <div id={'hw2-priority-' + props.affair._id} hidden>
                 {/*создаёт студент*/}
-
+                {props.affair.priority}
                 {/**/}
             </div>
 
@@ -46,6 +47,8 @@ function Affair(props: AffairPropsType) {
                 className={buttonClass}
                 // need to fix
                 //ОНКЛИК={ФУНКЦИЯ}
+                onClick={deleteCallback}
+                key={props.affair._id}
             >
                 {/*текст кнопки могут изменить студенты*/}
                 X
