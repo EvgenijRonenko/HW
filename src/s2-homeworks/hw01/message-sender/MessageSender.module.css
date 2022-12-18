@@ -1,18 +1,63 @@
-.sendForm {
+.friendMessage {
+    display: flex;
+    flex-direction: column;
+}
+
+.friendImageAndText {
+    display: flex;
+    gap: 10px;
+}
+
+.friendImageAndText img {
+    width: 48px;
+    height: 48px;
+}
+
+.friendText {
+
+    width: 414px;
+    height: 60px;
+    background: #F5F7FB;
+    box-shadow: 0px 5px 20px rgba(29, 33, 38, 0.03), 0px 1px 2px rgba(29, 33, 38, 0.1);
+    border-radius: 10px;
+}
+
+.friendText:after {
 
 }
 
-.textarea {
+.friendName {
+    width: 374px;
+    height: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
 
 }
 
-.button {
+.friendMessageText {
+    width: 374px;
+    height: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+
 
 }
 
-.button:hover {
-
-}
-.button:active {
-
+.friendTime {
+    width: 29px;
+    height: 12px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    color: #000000;
 }
