@@ -4,22 +4,14 @@ import s from './Affair.module.css'
 import s2 from '../Affairs.module.css'
 
 type AffairPropsType = {
-    // key не нужно типизировать
+
     affair: AffairType
-    deleteAffairCallback: (_id: number) => void
+    deleteAffairCallback: (_id: number) => void // need to fix any
 }
 
 function Affair(props: AffairPropsType) {
     const deleteCallback = () => {
-         props.deleteAffairCallback(props.affair._id)
-        // need to fix
-        // пропс.функция(мне нужен _id)
-        // давайте проследим боевой путь это функции, или как она будет всплывать:
-        // открывай в нескольких окнах и следи:
-        // отсюда она всплывет в компоненту Affairs вместе с _id ->
-        // далее из Affairs всплывет в HW2->
-        // в HW2 находим deleteAffairCallback- это и есть наш клиент ->
-        // deleteAffairCallback вызовет setAffairs(...) и   deleteAffair(...)
+        props.deleteAffairCallback(props.affair._id)
     }
 
     const nameClass = s.name + ' ' + s2[props.affair.priority]
@@ -32,27 +24,26 @@ function Affair(props: AffairPropsType) {
             className={affairClass}
         >
             <div id={'hw2-name-' + props.affair._id} className={nameClass}>
-                {/*создаёт студент*/}
+
                 {props.affair.name}
-                {/**/}
+
+
             </div>
             <div id={'hw2-priority-' + props.affair._id} hidden>
-                {/*создаёт студент*/}
+
                 {props.affair.priority}
-                {/**/}
+
             </div>
 
             <button
                 id={'hw2-button-delete-' + props.affair._id}
                 className={buttonClass}
-                // need to fix
-                //ОНКЛИК={ФУНКЦИЯ}
+
                 onClick={deleteCallback}
-                key={props.affair._id}
             >
-                {/*текст кнопки могут изменить студенты*/}
+
                 X
-                {/**/}
+
             </button>
         </div>
     )
